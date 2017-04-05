@@ -15,7 +15,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-// ì•„ë¬´ê²ƒë„ ì…ë ¥í•˜ì§€ ì•Šê³  í™•ì¸ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë°˜ì‘ì„ í•˜ì§€ ì•Šë„ë¡ í•´ì•¼í•¨
+// ¾Æ¹«°Íµµ ÀÔ·ÂÇÏÁö ¾Ê°í È®ÀÎ ¹öÆ°À» ´©¸£¸é ¹İÀÀÀ» ÇÏÁö ¾Êµµ·Ï ÇØ¾ßÇÔ
 
 public class Exam01{
 	public static void main(String[] ar){
@@ -26,13 +26,13 @@ public class Exam01{
 
 class Exam01_sub extends Frame implements FocusListener, ActionListener{
 	private BorderLayout border = new BorderLayout();
-	private Label lb1 = new Label("ì´ë¦„ : ", Label.RIGHT);
-	private Label lb2 = new Label("ì£¼ë¯¼ë²ˆí˜¸ : ", Label.RIGHT);
+	private Label lb1 = new Label("ÀÌ¸§ : ", Label.RIGHT);
+	private Label lb2 = new Label("ÁÖ¹Î¹øÈ£ : ", Label.RIGHT);
 	private TextField tf1 = new TextField();
 	private TextField tf2 = new TextField();
 	private TextField tf3 = new TextField();
-	private Button bt1 = new Button("í™•ì¸");
-	private Button bt2 = new Button("ì·¨ì†Œ");
+	private Button bt1 = new Button("È®ÀÎ");
+	private Button bt2 = new Button("Ãë¼Ò");
 	
 	Exam01_sub(){
 		super("Fous Listener");
@@ -41,7 +41,7 @@ class Exam01_sub extends Frame implements FocusListener, ActionListener{
 		this.setSize(300,120);
 		this.setVisible(true);
 		
-		addWindowListener(new WindowAdapter(){ // ì¢…ë£Œ ì•¡ì…˜
+		addWindowListener(new WindowAdapter(){ // Á¾·á ¾×¼Ç
 			public void windowClosing(WindowEvent e) {
 			System.exit(0);
 			}
@@ -80,7 +80,7 @@ class Exam01_sub extends Frame implements FocusListener, ActionListener{
 
 	@Override
 	public void focusGained(FocusEvent e) {
-		// Focusë¥¼ ì–»ì„ë•Œ ë°œìƒ
+		// Focus¸¦ ¾òÀ»¶§ ¹ß»ı
 		
 		if(e.getSource()==tf2){
 			int x = tf1.getText().trim().length();
@@ -99,7 +99,7 @@ class Exam01_sub extends Frame implements FocusListener, ActionListener{
 
 	@Override
 	public void focusLost(FocusEvent e) {
-		// Focusë¥¼ ìƒì„ë•Œ ë°œìƒ
+		// Focus¸¦ ÀÒÀ»¶§ ¹ß»ı
 		
 	}
 

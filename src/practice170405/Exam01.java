@@ -48,7 +48,7 @@ class Exam01_sub extends JFrame implements ActionListener{
 		//다이얼로그 화면 구성
 		dlgcon = dlg.getContentPane();
 		dlgcon.setLayout(border);
-		dlglb.setBorder(new BevelBorder(BevelBorder.RAISED));
+		//dlglb.setBorder(new BevelBorder(BevelBorder.RAISED));
 		dlgcon.add("Center",dlglb);
 		dlg.setSize(200, 150);
 	}
