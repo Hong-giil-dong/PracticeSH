@@ -18,7 +18,7 @@ public class Exam01 {
 class Exam01_sub extends JFrame{
 	private Container con; //작업 영역을 위한 기본 Panel을 담을 객체
 	private ImageIcon im, im1; //타이틀바 이미지 객체
-	
+	//메롱
 	public Exam01_sub(){
 		this.init();
 		this.start();
