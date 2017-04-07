@@ -18,19 +18,25 @@ import javax.swing.event.*;
 
 //삭제 프레임과 수정 프레임은 비슷하므로 같은 클래스로 구성해서 인스턴스로 사용해서 쓰는것이 어떨까
 
-public class Work01{
+public class Work01{ //메인 클래스
 	public static void main(String[] ar){ // 메인메소드 시작
 		Work01_Sub es = new Work01_Sub("사용자 관리"); // Work01_Sub 클래스 객체 생성
 	}
 }
 
-class Work01_Sub1 implements Serializable{//직렬화...
+
+//새로운 클래스
+class Work01_Sub1 implements Serializable{//직렬화... 
 	// 복잡한구조의 객체를 저장이나 네트워크전송을 할수있게 바이트스트림형태로 변경하는 것
+	
+	//변수 선언
 	private String name; // 이름 변수 선언
 	private String jumin; // 주민번호 변수 선언
 	private String tel; // 전화번호 변수 선언
 	private String addr; // 어드레스 변수 선언
 	
+	
+	//반환값이 없는 생성자!!
 	public Work01_Sub1(String a, String b, String c, String d){ //생성자->객체가 만들어 질때마다 초기화 되는 곳, 이름 주민번호 전화번호 주소는 객체가 만들어 질때마다 새로 사용할 것들이기 때문
 		name = a;
 		jumin = b;
@@ -38,6 +44,7 @@ class Work01_Sub1 implements Serializable{//직렬화...
 		addr = d;
 	}
 	
+	//반환값이 void로 있으므로 메소드 선언 부분
 	public void setName(String a){ // 이름을 설정하는 메소드 .. 매개변수로 스트링 값이 들어오면 그것을 name변수에 저장
 		name = a;
 	}
@@ -64,10 +71,13 @@ class Work01_Sub1 implements Serializable{//직렬화...
 	}
 }
 
-
+//클래스 선언
 class Work01_Sub extends JFrame
 	implements ActionListener, KeyListener, FocusListener{ // 스윙프레임을 상속받아서 프레임을 쓸 준비를 하고
 	// 액션 리스너와 키리스너, 포커스리스너 등 각 인터페이스가 갖고 있는 기능을 구현하기 위해서 사용
+	
+	
+	//변수 선언(기본형, 참조형)
 	private Container con; // 컨테이너 타입 참조변수 선언
 	private BorderLayout bl = new BorderLayout(5, 5); // 보더레이아웃객체 bl 생성 (조건 가운데 5,5 공백) 
 	private JLabel jlb = new JLabel("<== 이것을 누르면 전체보기가 됩니다."); // 라벨 객체 생성
@@ -142,9 +152,15 @@ class Work01_Sub extends JFrame
 	private JTextField btfdlg3 = new JTextField(15); // 텍스트 필드 객체 생성
 	private JButton bbtdlg = new JButton("수정"); // 버튼 객체 생성
 	private JButton bbtdlg1 = new JButton("취소"); // 버튼 객체 생성
-			
+	//변수 선언 끝!!
+	
+	
+	//생성자 (객체를 만들때마다 초기화 되는 곳)
 	public Work01_Sub(String str){ //생성자->객체가 만들어 질때마다 초기화 되는 곳, 이름 주민번호 전화번호 주소는 객체가 만들어 질때마다 새로 사용할 것들이기 때문
 		//객체가 생성될때마다 이곳은 항상 실행됨
+		
+		
+		//생성자 안에 있는 부분으로서 객체의 초기 셋팅 부분
 		super(str); // 프레임클래스의 생성자(str변수를 넣은것에 맞는) 호출
 		this.setIconImage(im.getImage()); // im객체의 getImage메소드 실행(이미지를 얻어온다는 의미), 얻어온 이미지를 프레임의 아이콘으로 설정하는 메소드 실행
 		this.init(); // 이 클래스내의 init메소드 실행
@@ -160,7 +176,11 @@ class Work01_Sub extends JFrame
 		this.setVisible(true); // 프레임을 드디어 보이게 설정함
 	}
 	
+	
+	//메소드 부분
 	public void init(){
+		
+		//실질적으로 메소드 안의 명령 수행 부분
 		con = this.getContentPane(); // 컨테이너 타입 참조변수에 컨텐트팬 객체를 매칭시킴
 		con.setLayout(bl); // con객체의 레이아웃을 bl(보더레이아웃)으로 설정함
 		JPanel jp = new JPanel(new BorderLayout(3, 3));	// 패널 객체jp를 만들고 보더레이아웃(3가로공간,3세로공간)을 집어넣음 
@@ -324,8 +344,9 @@ class Work01_Sub extends JFrame
 		//수정 두번째 다이얼로그 구성끝...
 		
 		// 기본적으로 메인 프레임 외의 다이얼로그들은 생성은 되어 있지만 나중에 필요할때만 보이도록 함
-	}
-	public void start(){
+	}//첫번째 메소드의 끝
+	
+	public void start(){//두번째 메소드
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 스윙의 기본 종료 동작 버튼 (변수로 DO_NOTHING_ON_CLOSE 이걸 쓰면 동작 하지 않음ㅋㅋ)
 		
 		//각종 버튼과 필드값 등등에 일어나는 변화를 감지하는 메소드를 일단 넣는 곳
@@ -366,11 +387,12 @@ class Work01_Sub extends JFrame
 		bbtdlg.addActionListener(this);//수정다이얼로그2의 수정버튼...
 		bbtdlg1.addActionListener(this);//수정다이얼로그2의 취소버튼...
 	}
-	
+	//두번째 메소드 끝
 	
 	
 	// 리스너에 대해 응답하는 메소드들 시작
 	
+	//세번째 메소드
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == jbt7){ // 버튼 7 객체에 종료 기능을 부여하는 식
 			System.exit(0); // 종료
@@ -697,7 +719,10 @@ class Work01_Sub extends JFrame
 			bjdlg.setVisible(false);
 		}
 	}
+	//세번째 메소드 종료
 	
+	
+	//네번째 메소드
 	public void keyTyped(KeyEvent e){
 		
 	}
